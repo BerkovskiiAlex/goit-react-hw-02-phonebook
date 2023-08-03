@@ -19,7 +19,9 @@ export class Input extends Component {
   };
 
   handleFilterChange = ({ target }) => {
-    this.setState({ filter: target.value });
+    const filter = target.value;
+    this.setState({ filter });
+    this.props.onFilterChange(filter);
   };
 
   render() {

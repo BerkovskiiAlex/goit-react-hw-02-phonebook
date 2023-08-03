@@ -35,12 +35,19 @@ export class App extends React.Component {
     }
   };
 
+  handleFilterChange = filter => {
+    this.setState({ filter });
+  };
+
   render() {
     const filteredContacts = this.filterContacts();
     return (
       <section>
-        <Input onSubmit={this.handleAddContact} />
-        <ContactsList contacts={this.state.contacts} />
+        <Input
+          onSubmit={this.handleAddContact}
+          onFilterChange={this.handleFilterChange}
+        />
+        <ContactsList contacts={filteredContacts} />
       </section>
     );
   }
