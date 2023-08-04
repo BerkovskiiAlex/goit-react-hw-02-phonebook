@@ -41,7 +41,7 @@ export class App extends React.Component {
     }
   };
 
-  handleFilterChange = filter => {
+  handleSetFilter = filter => {
     this.setState({ filter });
   };
 
@@ -61,7 +61,7 @@ export class App extends React.Component {
           contacts={filteredContacts}
           onDeleteContact={this.handleDeleteContact}
         />
-        <Filter onFilterChange={this.handleFilterChange} />
+        <Filter onFilterChange={this.handleSetFilter} />
       </section>
     );
   }
