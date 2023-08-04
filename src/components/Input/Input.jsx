@@ -5,7 +5,6 @@ export class Input extends Component {
   state = {
     name: '',
     number: '',
-    filter: '',
   };
 
   handleChange = ({ target }) => {
@@ -17,12 +16,6 @@ export class Input extends Component {
     const { name, number } = this.state;
     this.props.onSubmit(name, number);
     this.setState({ name: '', number: '' });
-  };
-
-  handleFilterChange = ({ target }) => {
-    const filter = target.value;
-    this.setState({ filter });
-    this.props.onFilterChange(filter);
   };
 
   render() {

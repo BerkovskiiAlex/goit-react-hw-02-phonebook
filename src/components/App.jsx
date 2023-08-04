@@ -41,8 +41,9 @@ export class App extends React.Component {
     }
   };
 
-  handleSetFilter = filter => {
-    this.setState({ filter });
+  handleSetFilter = event => {
+    const { value } = event.target;
+    this.setState({ filter: value });
   };
 
   handleDeleteContact = id => {
@@ -61,7 +62,10 @@ export class App extends React.Component {
           contacts={filteredContacts}
           onDeleteContact={this.handleDeleteContact}
         />
-        <Filter onFilterChange={this.handleSetFilter} />
+        <Filter
+          onFilterChange={this.handleSetFilter}
+          filter={this.state.filter}
+        />
       </section>
     );
   }
