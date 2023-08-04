@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class Input extends Component {
   state = {
@@ -25,7 +26,7 @@ export class Input extends Component {
   };
 
   render() {
-    const { name, number, filter } = this.state;
+    const { name, number } = this.state;
     return (
       <>
         <form onSubmit={this.handleSubmit}>
@@ -57,18 +58,11 @@ export class Input extends Component {
 
           <button type="submit">Add contact</button>
         </form>
-
-        <p>Find contacts by name</p>
-        <label>
-          <input
-            type="text"
-            name="filter"
-            placeholder="Search by name"
-            value={filter}
-            onChange={this.handleFilterChange}
-          />
-        </label>
       </>
     );
   }
 }
+
+Input.propTypes = {
+  onSubmit: PropTypes.func,
+};
